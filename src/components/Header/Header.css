@@ -1,0 +1,329 @@
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px 24px;
+    margin: 16px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 350px;
+    padding: 12px 18px;
+    background-color: #f0ecee;
+    border-radius: 30px;
+    color: #998b91;
+}
+
+.search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 14px;
+    color: #30252a;
+}
+
+.search-box input::placeholder {
+    color: #998b91;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.sort-container {
+    position: relative;
+}
+
+.sort-btn {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 16px;
+    border: none;
+    border-radius: 30px;
+    background-color: #f0ecee;
+    color: #30252a;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.sort-btn:hover {
+    background-color: #f5d4da;
+}
+
+.sort-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 200px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #f0e1e7;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(70, 40, 55, 0.12);
+    z-index: 10;
+}
+
+.sort-menu p {
+    margin: 4px 8px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #998b91;
+}
+
+.sort-menu button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 9px 8px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #30252a;
+    font-family: inherit;
+    font-size: 13px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.sort-menu button:hover {
+    background-color: #fcecf1;
+}
+
+.sort-menu button span {
+    margin-left: auto;
+}
+
+.theme-btn {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background-color: #f0ecee;
+    color: #30252a;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-btn:hover {
+    background-color: #f5d4da;
+    transform: rotate(15deg);
+}
+
+.mobile-menu-btn {
+    display: none;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: #f0ecee;
+    color: #30252a;
+    cursor: pointer;
+}
+
+/* Большие экраны */
+
+@media (min-width: 1200px) {
+    .search-box {
+        width: 500px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .search-box {
+        width: 650px;
+    }
+}
+
+/* Планшеты и мобильные устройства */
+
+@media (max-width: 900px) {
+    .header {
+        flex-wrap: wrap;
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .search-box {
+        width: 350px;
+        max-width: 100%;
+    }
+}
+
+/* Телефоны */
+
+@media (max-width: 600px) {
+    .search-box {
+        width: auto;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+/* Узкие планшеты и большие телефоны */
+@media (min-width: 601px) and (max-width: 650px) {
+    .header-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .search-box {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+/* Контейнер поиска */
+.search-container {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Кнопка очистки поиска */
+.search-clear-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary, #999);
+    cursor: pointer;
+    padding: 4px;
+    flex-shrink: 0;
+}
+
+.search-clear-btn:hover {
+    color: var(--text-primary, #333);
+}
+
+/* Выпадающий список результатов */
+.search-results {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    min-width: 260px;
+    max-height: 320px;
+    overflow-y: auto;
+    padding: 8px;
+    border: 1px solid var(--border-color, #eee);
+    border-radius: 14px;
+    background: var(--card-background, #fff);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+.search-results-heading {
+    margin: 4px 8px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary, #999);
+    text-transform: uppercase;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    padding: 10px 9px;
+    border: none;
+    border-radius: 9px;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.search-result-item:hover {
+    background: rgba(230, 160, 190, 0.12);
+}
+
+.search-result-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    border: 1px solid #d8a1ba;
+    border-radius: 50%;
+    color: #fff;
+}
+
+.search-result-status.completed {
+    background: #d8a1ba;
+}
+
+.search-result-title {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    font-size: 13px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.search-result-category {
+    max-width: 90px;
+    overflow: hidden;
+    font-size: 11px;
+    color: var(--text-secondary, #999);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.search-empty {
+    padding: 18px 10px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-secondary, #999);
+}
+
+.search-results-footer {
+    margin: 8px 8px 4px;
+    font-size: 11px;
+    color: var(--text-secondary, #999);
+}
+
+/* Тёмная тема */
+.dark-theme .search-results {
+    background: #29272c;
+    border-color: #454149;
+}
+
+.dark-theme .search-result-item {
+    color: #f2edf1;
+}
+
+.dark-theme .search-result-item:hover {
+    background: rgba(230, 160, 190, 0.15);
+}

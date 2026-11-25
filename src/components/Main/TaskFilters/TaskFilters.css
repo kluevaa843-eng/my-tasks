@@ -1,0 +1,134 @@
+
+.task-filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 24px 20px;
+}
+
+.task-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 15px;
+    border: none;
+    border-radius: 30px;
+    background-color: #f5e9ee;
+    color: #080004;
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.task-filter span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    font-size: 11px;
+    line-height: 1;
+}
+
+.task-filter:hover {
+    background-color: #f1dce5;
+}
+
+.task-filter.active {
+    background-color: #e9b7ca;
+    color: #000000;
+}
+
+.task-filter.active span {
+    color: #000000;
+}
+
+/* Тёмная тема */
+.app-layout.dark-theme .task-filter {
+    background-color: #493d48;
+    color: #c8b8c1;
+}
+
+.app-layout.dark-theme .task-filter span {
+    color: #b9a5b0;
+}
+
+.app-layout.dark-theme .task-filter:hover {
+    background-color: #5a4b57;
+}
+
+.app-layout.dark-theme .task-filter.active {
+    background-color: #755365;
+    color: #ffe5ef;
+}
+
+.app-layout.dark-theme .task-filter.active span {
+    color: #ffe5ef;
+}
+
+/* Планшеты */
+@media (max-width: 900px) {
+    .task-filters {
+        margin: 0 16px 18px;
+        gap: 8px;
+    }
+
+    .task-filter {
+        padding: 9px 13px;
+        font-size: 11px;
+    }
+}
+
+/* Телефоны */
+@media (max-width: 600px) {
+    .task-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin: 0 12px 16px;
+    }
+
+    .task-filter {
+        justify-content: center;
+        gap: 6px;
+        padding: 9px 12px;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    .task-filter span {
+        font-size: 10px;
+    }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 380px) {
+    .task-filters {
+        gap: 5px;
+        margin-right: 8px;
+        margin-left: 8px;
+    }
+
+    .task-filter {
+        gap: 4px;
+        padding: 8px 9px;
+        font-size: 10px;
+    }
+
+    .task-filter span {
+        font-size: 9px;
+    }
+}
+
+/* Очень узкие экраны */
+@media (max-width: 320px) {
+    .task-filters {
+        gap: 5px;
+    }
+
+    .task-filter {
+        padding: 7px 8px;
+        font-size: 9px;
+    }
+}

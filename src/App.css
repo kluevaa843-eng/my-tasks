@@ -1,0 +1,217 @@
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #ffffff;
+    color: #30252a;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 16px 16px 16px 8px;
+    border-radius: 20px;
+    background-color: #fcf0f5;
+    overflow: hidden;
+}
+.app-layout .sidebar {
+    margin-right: 0;
+}
+
+/* Тёмная тема */
+
+.app-layout.dark-theme {
+    min-height: 100vh;
+    background-color: #211c22;
+    color: #f5edf1;
+}
+
+.app-layout.dark-theme .main-content {
+    background-color: #302630;
+}
+
+/* Sidebar */
+
+.app-layout.dark-theme aside {
+    background-color: #302630;
+}
+
+.app-layout.dark-theme .logo h1,
+.app-layout.dark-theme .nav-label,
+.app-layout.dark-theme .categories-title,
+.app-layout.dark-theme .category-name {
+    color: #f5edf1;
+}
+
+.app-layout.dark-theme nav li.active {
+    background-color: #795565;
+}
+
+.app-layout.dark-theme nav li:hover,
+.app-layout.dark-theme .category-item:hover {
+    background-color: #493743;
+}
+
+.app-layout.dark-theme .nav-count,
+.app-layout.dark-theme .category-count {
+    background-color: #493d48;
+    color: #f5edf1;
+}
+
+/* Header */
+
+.app-layout.dark-theme .search-box,
+.app-layout.dark-theme .sort-select,
+.app-layout.dark-theme .theme-btn {
+    background-color: #493d48;
+    color: #f5edf1;
+}
+
+.app-layout.dark-theme .search-box input {
+    color: #f5edf1;
+}
+
+.app-layout.dark-theme .search-box input::placeholder {
+    color: #b9aab5;
+}
+
+.app-layout.dark-theme .theme-btn:hover {
+    background-color: #795565;
+}
+
+.app-layout.dark-theme .mobile-menu-btn {
+    background-color: #493d48;
+    color: #f5edf1;
+}
+
+.app-layout.dark-theme .mobile-menu-btn:hover {
+    background-color: #795565;
+}
+
+.app-layout.dark-theme .sort-btn {
+    background-color: #493d48;
+    color: #f5edf1;
+}
+
+.app-layout.dark-theme .sort-btn:hover {
+    background-color: #795565;
+}
+
+.app-layout.dark-theme .sort-menu {
+    background-color: #302630;
+    border-color: #594655;
+}
+
+.app-layout.dark-theme .sort-menu p {
+    color: #b9aab5;
+}
+
+.app-layout.dark-theme .sort-menu button {
+    color: #f5edf1;
+}
+
+.app-layout.dark-theme .sort-menu button:hover {
+    background-color: #493743;
+}
+
+.app-layout.dark-theme .sort-menu button svg {
+    color: #e6a8b9;
+}
+
+/* Форма категорий */
+
+.app-layout.dark-theme .categories form {
+    background-color: #302630;
+    border-color: #594655;
+}
+
+.app-layout.dark-theme .categories form label {
+    color: #f5edf1;
+}
+
+.app-layout.dark-theme .categories form input {
+    background-color: #493d48;
+    border-color: #594655;
+    color: #f5edf1;
+}
+
+.app-layout.dark-theme .add-category-btn {
+    color: #f5edf1;
+}
+
+.app-layout.dark-theme .add-category-btn:hover {
+    background-color: #493743;
+}
+
+/* Общие настройки страницы */
+
+html,
+body,
+#root {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+body:has(.app-layout.dark-theme) {
+    background-color: #211c22;
+}
+
+/* Затемнение фона при открытом меню */
+
+.sidebar-overlay {
+    display: none;
+    border: none;
+}
+
+/* Планшеты и телефоны */
+
+@media (max-width: 900px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 100;
+        width: 280px;
+        height: 100vh;
+        min-height: 100vh;
+        margin: 0;
+        border-radius: 0 20px 20px 0;
+        overflow-y: auto;
+        transform: translateX(-110%);
+    }
+
+    .sidebar.sidebar-open {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 99;
+        background-color: rgba(0, 0, 0, 0.35);
+        cursor: pointer;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+        flex-shrink: 0;
+    }
+
+    .app-layout {
+        min-height: 100vh;
+    }
+
+    .main-content {
+        width: 100%;
+        margin: 8px;
+    }
+}
